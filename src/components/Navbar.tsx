@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,7 +17,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "py-3 bg-[#030303]/80 backdrop-blur-md"
@@ -47,7 +51,7 @@ const Navbar = () => {
           </Link>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

@@ -1,53 +1,106 @@
 
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CardForm from "../components/CardForm";
 import { Shield, AlertTriangle } from "lucide-react";
+import ElegantShape from "../components/ElegantShape";
 
 const CardCheck = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const fadeVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.2 + i * 0.1,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-hidden bg-[#030303]">
       <Navbar />
       
-      <main className="flex-grow pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
+      <main className="relative flex-grow pt-32 pb-20 px-4">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <ElegantShape
+            delay={0.3}
+            width={400}
+            height={100}
+            rotate={-8}
+            gradient="from-primary/[0.1]"
+            className="right-[-5%] top-[10%]"
+          />
+          
+          <ElegantShape
+            delay={0.5}
+            width={300}
+            height={80}
+            rotate={12}
+            gradient="from-violet-500/[0.1]"
+            className="left-[-5%] bottom-[20%]"
+          />
+        </div>
+      
+        <div className="container relative z-10 mx-auto max-w-4xl">
+          <motion.div 
+            variants={fadeVariants}
+            custom={0}
+            initial="hidden"
+            animate="visible"
+            className="text-center mb-12"
+          >
             <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm text-primary mb-4">
               <Shield className="h-4 w-4 mr-1" />
               <span>Verificação de Segurança</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               Verifique seu cartão de crédito
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-white/40 max-w-2xl mx-auto">
               Preencha os dados do seu cartão abaixo para verificarmos se ele foi comprometido em algum vazamento de dados.
             </p>
-          </div>
+          </motion.div>
           
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 md:p-8 mb-8">
-            <div className="flex items-start mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-              <AlertTriangle className="h-5 w-5 text-amber-500 mr-3 mt-0.5" />
+          <motion.div 
+            variants={fadeVariants}
+            custom={1}
+            initial="hidden"
+            animate="visible"
+            className="bg-white/[0.03] backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 md:p-8 mb-8"
+          >
+            <div className="flex items-start mb-6 p-4 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+              <AlertTriangle className="h-5 w-5 text-amber-400 mr-3 mt-0.5" />
               <div>
-                <h3 className="font-medium text-amber-800 mb-1">Informação Importante</h3>
-                <p className="text-sm text-amber-700">
+                <h3 className="font-medium text-amber-200 mb-1">Informação Importante</h3>
+                <p className="text-sm text-amber-100/70">
                   Esta é uma ferramenta educacional sobre fraudes de cartão. Suas informações são processadas localmente e não são armazenadas ou transmitidas.
                 </p>
               </div>
             </div>
             
             <CardForm />
-          </div>
+          </motion.div>
           
-          <div className="bg-secondary/50 border border-border/50 rounded-lg p-6">
-            <h3 className="font-medium mb-3 text-lg">
+          <motion.div 
+            variants={fadeVariants}
+            custom={2}
+            initial="hidden"
+            animate="visible"
+            className="bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-lg p-6"
+          >
+            <h3 className="font-medium mb-3 text-lg text-white">
               Como proteger seus cartões?
             </h3>
-            <ul className="space-y-2 text-muted-foreground">
+            <ul className="space-y-2 text-white/40">
               <li className="flex items-start">
                 <span className="mr-2 mt-0.5 text-primary">•</span>
                 <span>Nunca compartilhe os dados do seu cartão em sites ou aplicativos não confiáveis</span>
@@ -65,7 +118,7 @@ const CardCheck = () => {
                 <span>Use sempre serviços de pagamento com autenticação de dois fatores</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </main>
       
