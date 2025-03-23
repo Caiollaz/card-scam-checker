@@ -1,14 +1,29 @@
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Shield, CheckCircle, AlertTriangle, CreditCard } from "lucide-react";
+import { motion } from "framer-motion";
+import { Circle, Shield, CheckCircle, AlertTriangle, CreditCard, ArrowRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ElegantShape from "../components/ElegantShape";
 
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.5 + i * 0.2,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -16,78 +31,166 @@ const Index = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-4">
-          <div className="container mx-auto text-center max-w-4xl">
-            <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm text-primary mb-6 animate-fade-in">
-              <Shield className="h-4 w-4 mr-1" />
-              <span>Proteção contra fraudes</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-balance animate-slide-in">
-              Verifique se seu cartão foi comprometido
-            </h1>
-            
-            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-in opacity-90">
-              Nossa ferramenta avançada verifica se seu cartão foi clonado ou comprometido em algum vazamento de dados. Proteja suas finanças agora.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-in opacity-95">
-              <Link
-                to="/check"
-                className="px-6 py-3 rounded-lg bg-primary text-white font-medium flex items-center hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#030303]">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
+
+          <div className="absolute inset-0 overflow-hidden">
+            <ElegantShape
+              delay={0.3}
+              width={600}
+              height={140}
+              rotate={12}
+              gradient="from-primary/[0.15]"
+              className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+            />
+
+            <ElegantShape
+              delay={0.5}
+              width={500}
+              height={120}
+              rotate={-15}
+              gradient="from-rose-500/[0.15]"
+              className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+            />
+
+            <ElegantShape
+              delay={0.4}
+              width={300}
+              height={80}
+              rotate={-8}
+              gradient="from-violet-500/[0.15]"
+              className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+            />
+
+            <ElegantShape
+              delay={0.6}
+              width={200}
+              height={60}
+              rotate={20}
+              gradient="from-amber-500/[0.15]"
+              className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+            />
+
+            <ElegantShape
+              delay={0.7}
+              width={150}
+              height={40}
+              rotate={-25}
+              gradient="from-cyan-500/[0.15]"
+              className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+            />
+          </div>
+
+          <div className="relative z-10 container mx-auto px-4 md:px-6 pt-20">
+            <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                custom={0}
+                variants={fadeUpVariants}
+                initial="hidden"
+                animate="visible"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
               >
-                <CreditCard className="mr-2 h-5 w-5" />
-                Verificar Cartão Agora
-              </Link>
-              <Link
-                to="/"
-                className="px-6 py-3 rounded-lg border border-gray-300 bg-white text-gray-700 font-medium hover:bg-gray-50 transition-all"
+                <Circle className="h-2 w-2 fill-primary/80" />
+                <span className="text-sm text-white/60 tracking-wide">
+                  Proteção de Cartões
+                </span>
+              </motion.div>
+
+              <motion.div
+                custom={1}
+                variants={fadeUpVariants}
+                initial="hidden"
+                animate="visible"
               >
-                Como Funciona
-              </Link>
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+                    Verifique se seu cartão
+                  </span>
+                  <br />
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-300 via-white/90 to-rose-300">
+                    foi comprometido
+                  </span>
+                </h1>
+              </motion.div>
+
+              <motion.div
+                custom={2}
+                variants={fadeUpVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+                  Nossa ferramenta avançada verifica se seu cartão foi clonado ou comprometido em vazamentos de dados recentes.
+                </p>
+              </motion.div>
+
+              <motion.div
+                custom={3}
+                variants={fadeUpVariants}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
+              >
+                <Link
+                  to="/check"
+                  className="px-6 py-3 rounded-lg bg-primary text-white font-medium flex items-center hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group"
+                >
+                  <CreditCard className="mr-2 h-5 w-5" />
+                  Verificar Cartão Agora
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  to="/"
+                  className="px-6 py-3 rounded-lg border border-white/10 bg-white/[0.03] text-white/70 font-medium hover:bg-white/[0.05] transition-all backdrop-blur-sm"
+                >
+                  Como Funciona
+                </Link>
+              </motion.div>
             </div>
           </div>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
         </section>
         
         {/* Features Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-white to-sky-50 px-4">
+        <section className="py-16 md:py-24 bg-[#030303] px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Proteção completa para seus cartões
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-white/40 max-w-2xl mx-auto">
                 Nosso sistema realiza diversas verificações para garantir que seus cartões estão seguros.
               </p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+              <div className="bg-white/[0.03] p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] transition-all duration-300">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Shield className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Verificação Inteligente</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-xl font-semibold mb-2 text-white">Verificação Inteligente</h3>
+                <p className="text-white/40">
                   Verificamos se seu cartão está em listas de cartões vazados usando algoritmos avançados.
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+              <div className="bg-white/[0.03] p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] transition-all duration-300">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Análise de Risco</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-xl font-semibold mb-2 text-white">Análise de Risco</h3>
+                <p className="text-white/40">
                   Avaliamos o risco de seu cartão ter sido comprometido baseado em padrões de fraude recentes.
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+              <div className="bg-white/[0.03] p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] transition-all duration-300">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <AlertTriangle className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Alerta Instantâneo</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-xl font-semibold mb-2 text-white">Alerta Instantâneo</h3>
+                <p className="text-white/40">
                   Receba alertas imediatos caso detectemos qualquer atividade suspeita em seu cartão.
                 </p>
               </div>
@@ -96,54 +199,43 @@ const Index = () => {
         </section>
         
         {/* CTA Section */}
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-[#030303]">
           <div className="container mx-auto max-w-5xl">
-            <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 backdrop-blur-sm">
               <div className="md:max-w-md">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
                   Proteja seus cartões agora mesmo
                 </h2>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-white/40 mb-6">
                   Não espere para descobrir se seus dados financeiros foram comprometidos. Faça uma verificação rápida e gratuita agora.
                 </p>
                 <Link
                   to="/check"
-                  className="inline-flex items-center px-5 py-2.5 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+                  className="inline-flex items-center px-5 py-2.5 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 group"
                 >
                   Verificar Cartão
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-1"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
               <div className="md:w-1/2 lg:w-2/5">
-                <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 card-shine">
+                <div className="bg-white/[0.03] p-6 rounded-xl border border-white/10 card-shine backdrop-blur-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
                       <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
                         <Shield className="h-4 w-4 text-primary" />
                       </div>
-                      <span className="font-medium">CardGuard</span>
+                      <span className="font-medium text-white">CardGuard</span>
                     </div>
-                    <span className="text-sm text-green-600 bg-green-50 px-2 py-0.5 rounded-full flex items-center">
+                    <span className="text-sm text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full flex items-center border border-green-400/20">
                       <CheckCircle className="h-3 w-3 mr-1" />
                       Protegido
                     </span>
                   </div>
                   <div className="space-y-2">
-                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full w-3/4 bg-primary rounded-full"></div>
                     </div>
-                    <div className="text-xs text-muted-foreground flex justify-between">
+                    <div className="text-xs text-white/40 flex justify-between">
                       <span>Status de proteção</span>
                       <span>75% completo</span>
                     </div>

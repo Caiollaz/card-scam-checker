@@ -19,7 +19,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "py-3 bg-white/80 backdrop-blur-md shadow-sm"
+          ? "py-3 bg-[#030303]/80 backdrop-blur-md"
           : "py-5 bg-transparent"
       }`}
     >
@@ -29,13 +29,13 @@ const Navbar = () => {
           className="flex items-center space-x-2 transition-opacity duration-200 hover:opacity-80"
         >
           <Shield size={24} className="text-primary" />
-          <span className="font-medium text-lg">CardGuard</span>
+          <span className="font-medium text-lg text-white">CardGuard</span>
         </Link>
 
         <nav className="flex items-center space-x-1 md:space-x-2">
           <Link
             to="/"
-            className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+            className="px-3 py-2 rounded-md text-sm font-medium text-white/70 hover:text-primary transition-colors"
           >
             Início
           </Link>
