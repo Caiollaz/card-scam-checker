@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Circle, Shield, ArrowRight, CreditCard } from "lucide-react";
+import { Circle, Shield, ArrowRight, CreditCard, Check } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ElegantShape from "../components/ElegantShape";
