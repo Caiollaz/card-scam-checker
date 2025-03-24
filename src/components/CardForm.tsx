@@ -121,12 +121,10 @@ const CardForm = () => {
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto space-y-6">
       <div className="card-container relative">
         <div 
-          className={`card-shine glass p-6 rounded-xl shadow-sm border ${
-            cardType ? "border-primary/20" : "border-gray-200"
-          }`}
+          className="card-shine glass p-6 rounded-xl shadow-sm border border-primary/20"
         >
           <div className="mb-4">
-            <label htmlFor="cardNumber" className="block text-sm font-medium mb-1">
+            <label htmlFor="cardNumber" className="block text-sm font-medium mb-1 text-white">
               Número do Cartão
             </label>
             <div className="relative">
@@ -136,12 +134,12 @@ const CardForm = () => {
                 value={cardNumber}
                 onChange={handleCardNumberChange}
                 placeholder="0000 0000 0000 0000"
-                className={`w-full pl-10 pr-4 py-2 rounded-md border ${
-                  errors.cardNumber ? "border-red-300" : "border-gray-300"
+                className={`w-full pl-10 pr-4 py-2 rounded-md bg-white/10 text-white border ${
+                  errors.cardNumber ? "border-red-300" : "border-gray-700"
                 } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200`}
                 maxLength={19}
               />
-              <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/60" />
               {cardType && (
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 font-medium text-sm text-primary">
                   {cardType.name}
@@ -157,7 +155,7 @@ const CardForm = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="cardholderName" className="block text-sm font-medium mb-1">
+            <label htmlFor="cardholderName" className="block text-sm font-medium mb-1 text-white">
               Nome do Titular
             </label>
             <input
@@ -166,8 +164,8 @@ const CardForm = () => {
               value={cardholderName}
               onChange={(e) => setCardholderName(e.target.value)}
               placeholder="Nome como está no cartão"
-              className={`w-full px-4 py-2 rounded-md border ${
-                errors.cardholderName ? "border-red-300" : "border-gray-300"
+              className={`w-full px-4 py-2 rounded-md bg-white/10 text-white border ${
+                errors.cardholderName ? "border-red-300" : "border-gray-700"
               } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200`}
             />
             {errors.cardholderName && (
@@ -180,7 +178,7 @@ const CardForm = () => {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-sm font-medium mb-1 text-white">
                 Data de Validade
               </label>
               <div className="flex space-x-2 items-center">
@@ -188,36 +186,36 @@ const CardForm = () => {
                   <select
                     value={expiryMonth}
                     onChange={handleExpiryMonthChange}
-                    className={`w-full appearance-none pl-8 pr-4 py-2 rounded-md border ${
-                      errors.expiry ? "border-red-300" : "border-gray-300"
+                    className={`w-full appearance-none pl-8 pr-4 py-2 rounded-md bg-white/10 text-white border ${
+                      errors.expiry ? "border-red-300" : "border-gray-700"
                     } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200`}
                   >
-                    <option value="">MM</option>
+                    <option value="" className="bg-[#121212] text-white">MM</option>
                     {Array.from({ length: 12 }, (_, i) => {
                       const month = i + 1;
                       return (
-                        <option key={month} value={month.toString().padStart(2, "0")}>
+                        <option key={month} value={month.toString().padStart(2, "0")} className="bg-[#121212] text-white">
                           {month.toString().padStart(2, "0")}
                         </option>
                       );
                     })}
                   </select>
-                  <Calendar className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Calendar className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white/60" />
                 </div>
-                <span className="text-gray-500">/</span>
+                <span className="text-white/60">/</span>
                 <div className="relative flex-1">
                   <select
                     value={expiryYear}
                     onChange={handleExpiryYearChange}
-                    className={`w-full appearance-none px-3 py-2 rounded-md border ${
-                      errors.expiry ? "border-red-300" : "border-gray-300"
+                    className={`w-full appearance-none px-3 py-2 rounded-md bg-white/10 text-white border ${
+                      errors.expiry ? "border-red-300" : "border-gray-700"
                     } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200`}
                   >
-                    <option value="">AA</option>
+                    <option value="" className="bg-[#121212] text-white">AA</option>
                     {Array.from({ length: 11 }, (_, i) => {
                       const year = new Date().getFullYear() % 100 + i;
                       return (
-                        <option key={year} value={year.toString().padStart(2, "0")}>
+                        <option key={year} value={year.toString().padStart(2, "0")} className="bg-[#121212] text-white">
                           {year}
                         </option>
                       );
@@ -234,7 +232,7 @@ const CardForm = () => {
             </div>
 
             <div>
-              <label htmlFor="cvc" className="block text-sm font-medium mb-1">
+              <label htmlFor="cvc" className="block text-sm font-medium mb-1 text-white">
                 CVC/CVV
               </label>
               <div className="relative">
@@ -244,12 +242,12 @@ const CardForm = () => {
                   value={cvc}
                   onChange={handleCvcChange}
                   placeholder={cardType?.name === "American Express" ? "0000" : "000"}
-                  className={`w-full pl-9 pr-4 py-2 rounded-md border ${
-                    errors.cvc ? "border-red-300" : "border-gray-300"
+                  className={`w-full pl-9 pr-4 py-2 rounded-md bg-white/10 text-white border ${
+                    errors.cvc ? "border-red-300" : "border-gray-700"
                   } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200`}
                   maxLength={cardType?.name === "American Express" ? 4 : 3}
                 />
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/60" />
               </div>
               {errors.cvc && (
                 <p className="mt-1 text-xs text-red-500 flex items-center">

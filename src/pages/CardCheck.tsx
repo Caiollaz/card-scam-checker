@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CardForm from "../components/CardForm";
-import { Shield, AlertTriangle } from "lucide-react";
+import { Shield } from "lucide-react";
 import ElegantShape from "../components/ElegantShape";
 
 const CardCheck = () => {
@@ -77,16 +77,6 @@ const CardCheck = () => {
             animate="visible"
             className="bg-white/[0.03] backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 md:p-8 mb-8"
           >
-            <div className="flex items-start mb-6 p-4 bg-amber-500/10 border border-amber-500/20 rounded-lg">
-              <AlertTriangle className="h-5 w-5 text-amber-400 mr-3 mt-0.5" />
-              <div>
-                <h3 className="font-medium text-amber-200 mb-1">Informação Importante</h3>
-                <p className="text-sm text-amber-100/70">
-                  Esta é uma ferramenta educacional sobre fraudes de cartão. Suas informações são processadas localmente e não são armazenadas ou transmitidas.
-                </p>
-              </div>
-            </div>
-            
             <CardForm />
           </motion.div>
           
