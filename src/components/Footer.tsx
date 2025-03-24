@@ -1,13 +1,11 @@
-
-import { Link } from "react-router-dom";
-import { Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import { Shield } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-[#030303] py-12 px-4 border-t border-white/10">
       <div className="container mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -18,7 +16,8 @@ const Footer = () => {
             <span className="font-medium text-white">CardGuard</span>
           </div>
           <div className="text-sm text-white/40">
-            © {new Date().getFullYear()} CardGuard. Todos os direitos reservados.
+            © {new Date().getFullYear()} CardGuard. Todos os direitos
+            reservados.
           </div>
         </motion.div>
       </div>

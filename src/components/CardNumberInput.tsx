@@ -1,4 +1,3 @@
-
 import { CreditCard } from "lucide-react";
 import CardInputField from "./CardInputField";
 
@@ -9,24 +8,26 @@ interface CardNumberInputProps {
   error?: string;
 }
 
-const CardNumberInput = ({ 
-  cardNumber, 
-  onCardNumberChange, 
-  cardType, 
-  error 
+const CardNumberInput = ({
+  cardNumber,
+  onCardNumberChange,
+  cardType,
+  error,
 }: CardNumberInputProps) => {
   // Function to render the appropriate card brand icon based on card type
   const renderCardBrandIcon = () => {
     if (!cardType) return null;
-    
+
     // Using lowercase card type name for the icon class
     const cardName = cardType.name.toLowerCase();
-    
+
     return (
       <div className="absolute right-3 top-1/2 -translate-y-1/2">
-        <div className={`w-8 h-5 bg-contain bg-no-repeat bg-center`} 
-             style={{ backgroundImage: `url(/cards/${cardName}.svg)` }}
-             title={cardType.name}></div>
+        <div
+          className={`w-8 h-5 bg-contain bg-no-repeat bg-center`}
+          style={{ backgroundImage: `url(/cards/${cardName}.svg)` }}
+          title={cardType.name}
+        ></div>
       </div>
     );
   };

@@ -1,8 +1,7 @@
-
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import { Shield } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -11,7 +10,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

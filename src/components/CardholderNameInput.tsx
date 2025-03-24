@@ -1,4 +1,3 @@
-
 import CardInputField from "./CardInputField";
 
 interface CardholderNameInputProps {
@@ -7,10 +6,10 @@ interface CardholderNameInputProps {
   error?: string;
 }
 
-const CardholderNameInput = ({ 
-  cardholderName, 
-  onCardholderNameChange, 
-  error 
+const CardholderNameInput = ({
+  cardholderName,
+  onCardholderNameChange,
+  error,
 }: CardholderNameInputProps) => {
   return (
     <CardInputField id="cardholderName" label="Nome do Titular" error={error}>

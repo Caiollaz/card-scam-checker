@@ -1,4 +1,3 @@
-
 import { Calendar } from "lucide-react";
 import CardInputField from "./CardInputField";
 
@@ -15,7 +14,7 @@ const ExpiryDateInputs = ({
   expiryYear,
   onExpiryMonthChange,
   onExpiryYearChange,
-  error
+  error,
 }: ExpiryDateInputsProps) => {
   return (
     <CardInputField id="expiry" label="Data de Validade" error={error}>
@@ -28,11 +27,17 @@ const ExpiryDateInputs = ({
               error ? "border-red-300" : "border-gray-700"
             } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200`}
           >
-            <option value="" className="bg-[#121212] text-white">MM</option>
+            <option value="" className="bg-[#121212] text-white">
+              MM
+            </option>
             {Array.from({ length: 12 }, (_, i) => {
               const month = i + 1;
               return (
-                <option key={month} value={month.toString().padStart(2, "0")} className="bg-[#121212] text-white">
+                <option
+                  key={month}
+                  value={month.toString().padStart(2, "0")}
+                  className="bg-[#121212] text-white"
+                >
                   {month.toString().padStart(2, "0")}
                 </option>
               );
@@ -49,11 +54,17 @@ const ExpiryDateInputs = ({
               error ? "border-red-300" : "border-gray-700"
             } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200`}
           >
-            <option value="" className="bg-[#121212] text-white">AA</option>
+            <option value="" className="bg-[#121212] text-white">
+              AA
+            </option>
             {Array.from({ length: 11 }, (_, i) => {
-              const year = new Date().getFullYear() % 100 + i;
+              const year = (new Date().getFullYear() % 100) + i;
               return (
-                <option key={year} value={year.toString().padStart(2, "0")} className="bg-[#121212] text-white">
+                <option
+                  key={year}
+                  value={year.toString().padStart(2, "0")}
+                  className="bg-[#121212] text-white"
+                >
                   {year}
                 </option>
               );

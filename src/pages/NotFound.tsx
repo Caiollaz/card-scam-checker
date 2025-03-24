@@ -1,4 +1,3 @@
-
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -26,7 +25,7 @@ const NotFound = () => {
           gradient="from-primary/[0.1]"
           className="right-[-5%] top-[10%]"
         />
-        
+
         <ElegantShape
           delay={0.5}
           width={300}
@@ -36,7 +35,7 @@ const NotFound = () => {
           className="left-[-5%] bottom-[20%]"
         />
       </div>
-      
+
       <div className="relative z-10 text-center px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -48,9 +47,11 @@ const NotFound = () => {
             <AlertCircle className="h-10 w-10 text-red-400" />
           </div>
           <h1 className="text-4xl font-bold mb-4 text-white">404</h1>
-          <p className="text-xl text-white/60 mb-6">Oops! Página não encontrada</p>
-          <a 
-            href="/" 
+          <p className="text-xl text-white/60 mb-6">
+            Oops! Página não encontrada
+          </p>
+          <a
+            href="/"
             className="inline-flex items-center px-5 py-2.5 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />

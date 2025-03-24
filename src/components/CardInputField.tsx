@@ -1,6 +1,5 @@
-
-import { ReactNode } from "react";
 import { AlertCircle } from "lucide-react";
+import { ReactNode } from "react";
 
 interface CardInputFieldProps {
   id: string;
@@ -9,7 +8,12 @@ interface CardInputFieldProps {
   children: ReactNode;
 }
 
-const CardInputField = ({ id, label, error, children }: CardInputFieldProps) => {
+const CardInputField = ({
+  id,
+  label,
+  error,
+  children,
+}: CardInputFieldProps) => {
   return (
     <div className="mb-4">
       <label htmlFor={id} className="block text-sm font-medium mb-1 text-white">

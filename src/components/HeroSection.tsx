@@ -1,7 +1,6 @@
-
 import { motion } from "framer-motion";
+import { ArrowRight, Circle, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Circle, ArrowRight, CreditCard } from "lucide-react";
 import ElegantShape from "./ElegantShape";
 
 const HeroSection = () => {
@@ -108,7 +107,8 @@ const HeroSection = () => {
             animate="visible"
           >
             <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Nossa ferramenta avançada verifica se seu cartão foi clonado ou comprometido em vazamentos de dados recentes.
+              Nossa ferramenta avançada verifica se seu cartão foi clonado ou
+              comprometido em vazamentos de dados recentes.
             </p>
           </motion.div>
 

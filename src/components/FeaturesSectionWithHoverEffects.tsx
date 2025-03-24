@@ -1,16 +1,15 @@
-
 import { cn } from "@/lib/utils";
-import { 
-  Check, 
-  Shield, 
-  AlertTriangle, 
-  CreditCard, 
-  Lock, 
-  Eye, 
-  RefreshCcw, 
-  Bell 
-} from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  AlertTriangle,
+  Bell,
+  Check,
+  CreditCard,
+  Eye,
+  Lock,
+  RefreshCcw,
+  Shield,
+} from "lucide-react";
 
 export function FeaturesSectionWithHoverEffects() {
   const features = [
@@ -28,17 +27,20 @@ export function FeaturesSectionWithHoverEffects() {
     },
     {
       title: "Alerta Instantâneo",
-      description: "Receba alertas imediatos caso detectemos qualquer atividade suspeita em seu cartão.",
+      description:
+        "Receba alertas imediatos caso detectemos qualquer atividade suspeita em seu cartão.",
       icon: <AlertTriangle className="h-6 w-6" />,
     },
     {
       title: "Proteção Total",
-      description: "Oferecemos proteção completa para todos os tipos de cartões de crédito e débito.",
+      description:
+        "Oferecemos proteção completa para todos os tipos de cartões de crédito e débito.",
       icon: <CreditCard className="h-6 w-6" />,
     },
     {
       title: "Segurança Avançada",
-      description: "Utilizamos tecnologia de ponta para manter seus dados seguros e protegidos.",
+      description:
+        "Utilizamos tecnologia de ponta para manter seus dados seguros e protegidos.",
       icon: <Lock className="h-6 w-6" />,
     },
     {
@@ -55,13 +57,14 @@ export function FeaturesSectionWithHoverEffects() {
     },
     {
       title: "Notificações Personalizadas",
-      description: "Configure notificações personalizadas para manter-se informado sobre seu cartão.",
+      description:
+        "Configure notificações personalizadas para manter-se informado sobre seu cartão.",
       icon: <Bell className="h-6 w-6" />,
     },
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.3 }}
@@ -102,9 +105,7 @@ const Feature = ({
       {index >= 4 && (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
       )}
-      <div className="mb-4 relative z-10 px-10 text-primary">
-        {icon}
-      </div>
+      <div className="mb-4 relative z-10 px-10 text-primary">{icon}</div>
       <div className="text-lg font-bold mb-2 relative z-10 px-10">
         <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-white/20 group-hover/feature:bg-primary transition-all duration-200 origin-center" />
         <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-white">
