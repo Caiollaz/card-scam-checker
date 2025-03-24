@@ -2,10 +2,11 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Circle, Shield, CheckCircle, AlertTriangle, CreditCard, ArrowRight } from "lucide-react";
+import { Circle, Shield, ArrowRight, CreditCard } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ElegantShape from "../components/ElegantShape";
+import FeaturesSectionWithHoverEffects from "../components/FeaturesSectionWithHoverEffects";
 
 const Index = () => {
   useEffect(() => {
@@ -156,52 +157,37 @@ const Index = () => {
         <section className="py-16 md:py-24 bg-[#030303] px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-3xl md:text-4xl font-bold mb-4 text-white"
+              >
                 Proteção completa para seus cartões
-              </h2>
-              <p className="text-white/40 max-w-2xl mx-auto">
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="text-white/40 max-w-2xl mx-auto"
+              >
                 Nosso sistema realiza diversas verificações para garantir que seus cartões estão seguros.
-              </p>
+              </motion.p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white/[0.03] p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Verificação Inteligente</h3>
-                <p className="text-white/40">
-                  Verificamos se seu cartão está em listas de cartões vazados usando algoritmos avançados.
-                </p>
-              </div>
-              
-              <div className="bg-white/[0.03] p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Análise de Risco</h3>
-                <p className="text-white/40">
-                  Avaliamos o risco de seu cartão ter sido comprometido baseado em padrões de fraude recentes.
-                </p>
-              </div>
-              
-              <div className="bg-white/[0.03] p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.05] transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <AlertTriangle className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Alerta Instantâneo</h3>
-                <p className="text-white/40">
-                  Receba alertas imediatos caso detectemos qualquer atividade suspeita em seu cartão.
-                </p>
-              </div>
-            </div>
+            <FeaturesSectionWithHoverEffects />
           </div>
         </section>
         
         {/* CTA Section */}
         <section className="py-20 px-4 bg-[#030303]">
           <div className="container mx-auto max-w-5xl">
-            <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 backdrop-blur-sm">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 backdrop-blur-sm"
+            >
               <div className="md:max-w-md">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
                   Proteja seus cartões agora mesmo
@@ -227,7 +213,7 @@ const Index = () => {
                       <span className="font-medium text-white">CardGuard</span>
                     </div>
                     <span className="text-sm text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full flex items-center border border-green-400/20">
-                      <CheckCircle className="h-3 w-3 mr-1" />
+                      <Check className="h-3 w-3 mr-1" />
                       Protegido
                     </span>
                   </div>
@@ -242,7 +228,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
