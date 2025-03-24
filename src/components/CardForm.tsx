@@ -109,7 +109,7 @@ const CardForm = () => {
     if (validateForm()) {
       setLoading(true);
 
-      // Simulate API call
+      // Simular chamada de API
       setTimeout(() => {
         setLoading(false);
         navigate("/results", {
@@ -118,7 +118,7 @@ const CardForm = () => {
             lastFour: cardNumber.slice(-4),
           },
         });
-      }, 2000);
+      }, 3000);
     }
   };
 

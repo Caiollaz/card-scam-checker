@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Circle, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
 import ElegantShape from "./ElegantShape";
+import { Typewriter } from "./Typewriter";
 
 const HeroSection = () => {
   const fadeUpVariants = {
@@ -91,11 +92,12 @@ const HeroSection = () => {
           >
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                Verifique se seu cartão
-              </span>
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-300 via-white/90 to-rose-300">
-                foi comprometido
+                Verifique se seu cartão{" "}
+                <Typewriter
+                  text={"foi comprometido !"}
+                  speed={100}
+                  loop={true}
+                />
               </span>
             </h1>
           </motion.div>

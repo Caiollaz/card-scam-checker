@@ -67,12 +67,10 @@ export const formatCardNumber = (value: string): string => {
   const cardType = getCardType(cleanValue);
   
   if (!cardType) {
-    // Default formatting: groups of 4 digits
     const groups = cleanValue.match(/.{1,4}/g);
     return groups ? groups.join(" ") : cleanValue;
   }
   
-  // Apply card-specific formatting
   const mask = cardType.mask;
   let result = "";
   let index = 0;
@@ -96,16 +94,13 @@ export const formatCardNumber = (value: string): string => {
 export const validateCardNumber = (cardNumber: string): boolean => {
   const cleanNumber = cardNumber.replace(/\s+/g, "");
   
-  // Basic length check
   if (cleanNumber.length < 13 || cleanNumber.length > 19) {
     return false;
   }
   
-  // Luhn algorithm (mod 10)
   let sum = 0;
   let shouldDouble = false;
   
-  // Loop through values starting from the rightmost digit
   for (let i = cleanNumber.length - 1; i >= 0; i--) {
     let digit = parseInt(cleanNumber.charAt(i));
     
@@ -125,8 +120,8 @@ export const validateCardNumber = (cardNumber: string): boolean => {
 
 export const validateExpiryDate = (month: string, year: string): boolean => {
   const currentDate = new Date();
-  const currentYear = currentDate.getFullYear() % 100; // Get last two digits
-  const currentMonth = currentDate.getMonth() + 1; // 1-12
+  const currentYear = currentDate.getFullYear() % 100;
+  const currentMonth = currentDate.getMonth() + 1;
   
   const expMonth = parseInt(month, 10);
   const expYear = parseInt(year, 10);
@@ -139,7 +134,6 @@ export const validateExpiryDate = (month: string, year: string): boolean => {
     return false;
   }
   
-  // Check if expired
   if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
     return false;
   }
@@ -151,7 +145,6 @@ export const validateCVC = (cvc: string, cardType?: CardType): boolean => {
   const cleanCVC = cvc.trim();
   const isAmex = cardType?.name === "American Express";
   
-  // Amex requires 4 digits, others require 3
   const requiredLength = isAmex ? 4 : 3;
   
   return cleanCVC.length === requiredLength && /^\d+$/.test(cleanCVC);

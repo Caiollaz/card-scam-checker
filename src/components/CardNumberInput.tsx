@@ -14,11 +14,9 @@ const CardNumberInput = ({
   cardType,
   error,
 }: CardNumberInputProps) => {
-  // Function to render the appropriate card brand icon based on card type
   const renderCardBrandIcon = () => {
     if (!cardType) return null;
 
-    // Using lowercase card type name for the icon class
     const cardName = cardType.name.toLowerCase();
 
     return (

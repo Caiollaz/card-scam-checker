@@ -18,8 +18,8 @@ const CTASection = () => {
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
           <ElegantShape
             delay={0.2}
-            width={300} // Reduzido para telas menores
-            height={80} // Reduzido para telas menores
+            width={300}
+            height={80}
             rotate={-5}
             gradient="from-primary/[0.15]"
             className="right-[10%] top-[30%]"
