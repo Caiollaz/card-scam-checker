@@ -208,7 +208,10 @@ const Index = () => {
                   </div>
                   
                   <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                    Seus dados ficam <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-300">ainda mais protegidos</span> com CardGuard
+                    Seus dados ficam <span className="text-primary relative inline-block px-1">
+                      <span className="relative z-10">ainda mais protegidos</span>
+                      <span className="absolute inset-0 bg-primary/10 rounded-md blur-[2px] z-0"></span>
+                    </span> com CardGuard
                   </h2>
                   
                   <p className="text-white/60 text-lg">
