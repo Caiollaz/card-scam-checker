@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import CTASection from "../components/CTASection";
 import FeaturesSectionWithHoverEffects from "../components/FeaturesSectionWithHoverEffects";
+import { SplashCursor } from "@/components/SplashCursor";
 
 const Index = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SplashCursor />
       <Navbar />
 
       <main className="flex-grow">
